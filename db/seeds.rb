@@ -39,11 +39,11 @@ type = Array["Fiction", "Nonfiction"]
 
 50.times do 
   Book.create(
-    title: Faker::Book.title
-    author: Faker::Book.author
-    genre: Faker::Book.genre
-    classification: classification.sample
-    type: type.sample
+    title: Faker::Book.title,
+    author: Faker::Book.author,
+    genre: Faker::Book.genre,
+    classification: classification.sample,
+    type: type.sample,
     year: Faker::Number.positive(from=1800, to=2000)
   )
 end 
