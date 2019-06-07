@@ -10,6 +10,7 @@
 
 require 'faker'
 include Faker
+Faker::Config.locale = 'en-US'
 
 classification = Array[
     "General Works - encyclopedias ",
