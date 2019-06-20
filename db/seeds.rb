@@ -7,12 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 #books = Book.create([{ title: 'Pride and Prejudice' }, { author: 'Jane Austen' }, { genre: 'Classic Regency novel'}, { classification: 'Fine Arts'}, { type: 'Fiction' }, { year: 1813}])
 
+Book.destroy_all 
 
-require 'faker'
-include Faker
 Faker::Config.locale = 'en-US'
 
-classification = Array[
+classifications = [
     "General Works - encyclopedias ",
     "Philosophy, Psychology, Religion ",
     "History - Auxiliary Sciences ",
@@ -36,15 +35,15 @@ classification = Array[
     "Bibliography and Library Science"
 ]
 
-type = Array["Fiction", "Nonfiction"]
+book_types = ["Fiction", "Nonfiction"]
 
 50.times do 
   Book.create(
     title: Faker::Book.title,
     author: Faker::Book.author,
     genre: Faker::Book.genre,
-    classification: classification.sample,
-    type: type.sample,
-    year: Faker::Number.positive(from=1800, to=2000)
+    classification: classifications.sample,
+    book_type: book_types.sample,
+    year: rand(1900..2019)
   )
 end 
